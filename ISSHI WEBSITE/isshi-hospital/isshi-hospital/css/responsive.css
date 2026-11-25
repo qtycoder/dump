@@ -1,0 +1,65 @@
+/* ==========================================================
+   responsive.css — breakpoints (loaded last)
+   ========================================================== */
+
+@media (max-width: 1080px) {
+  .nav-links, .nav-cta .btn--ghost { display: none; }
+  .burger { display: grid; }
+  .nav { gap: .8rem; }
+  .nav-cta { margin-left: auto; }
+  .burger { margin-left: 0; }
+  .nav.open { height: auto; flex-wrap: wrap; border-radius: 2rem; padding: .7rem .7rem 1rem 1.1rem; }
+  .nav.open .nav-links { display: flex; flex-direction: column; order: 5; width: 100%; margin: .6rem 0 0; }
+  .nav.open .nav-links a { padding: .8rem 1rem; }
+
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero-visual { max-width: 620px; margin-inline: auto; width: 100%; }
+  .bento { grid-template-columns: 1fr 1fr; }
+  .bento-feature { grid-column: span 2; grid-row: auto; min-height: 260px; }
+  .services-grid, .contact-grid { grid-template-columns: 1fr; }
+  .people--5 { grid-template-columns: repeat(3, 1fr); }
+  .people--4 { grid-template-columns: repeat(2, 1fr); }
+  .footer-main { grid-template-columns: 1fr 1fr; }
+  .footer-main > :first-child { grid-column: span 2; }
+}
+
+@media (max-width: 720px) {
+  .wrap { width: min(1200px, 100% - 2rem); }
+  .nav-cta .btn--primary span { display: none; }
+  .brand small { display: none; }
+  .hero { padding-top: calc(var(--header-h) + 2rem); }
+  .hero-stats { width: 100%; justify-content: space-between; }
+  .hero-stats div { padding: 0 .7rem; }
+  .hero-visual { padding-left: 0; }
+  .hero-visual::before { inset: 1.2rem 1rem 0 0; }
+  .fc-b { right: 0; top: 1.4rem; }
+  .seal-ring { width: 84px; height: 84px; bottom: 5rem; }
+  .seal-ring img { width: 62px; }
+  .bento { grid-template-columns: 1fr; }
+  .bento-feature { grid-column: auto; }
+  .svc-list, .dir-grid { grid-template-columns: 1fr; }
+  .hmo-grid { grid-template-columns: repeat(2, 1fr); }
+  .president { grid-template-columns: 1fr; }
+  .president-photo { padding: 1.5rem 1.5rem 0; order: 2; max-width: 320px; margin-inline: auto; }
+  .president-body { padding: 1.8rem 1.5rem 0; }
+  .people--5, .people--4 { grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+  .person figcaption { inset: auto .4rem .4rem; padding: .6rem .7rem; }
+  .person h4 { font-size: .82rem; }
+  .footer-main { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-main > :first-child { grid-column: auto; }
+  .site-footer { border-radius: 2.2rem 2.2rem 0 0; }
+}
+
+@media (max-width: 720px) {
+  .hero-actions .btn { flex: 1 1 100%; }
+  .float-card { max-width: calc(100% - 1rem); }
+  .fc-b { right: .5rem; }
+  .fc-a { left: .5rem; }
+  .float-card b { font-size: .86rem; }
+}
+.hero-grid > * { min-width: 0; }
+@media (max-width: 720px) {
+  .hero-stats { display: grid; grid-template-columns: repeat(4, auto); padding: .8rem .6rem; }
+  .hero-stats b { font-size: 1.3rem; }
+  .hero-stats span { font-size: .68rem; }
+}

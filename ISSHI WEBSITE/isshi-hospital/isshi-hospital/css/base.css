@@ -1,0 +1,123 @@
+/* ==========================================================
+   base.css — design tokens, reset, typography
+   Nature-Tech: organic panels + gradient glass
+   ========================================================== */
+
+:root {
+  /* Forest / teal scale */
+  --forest-950: #04201c;
+  --forest-900: #08342e;
+  --forest-800: #0c4a41;
+  --teal-700: #0b6b62;
+  --teal-600: #0f8277;
+  --teal-500: #16a394;
+  --mint-300: #7fdcc8;
+  --mint-200: #b8efe2;
+  --mint-100: #def7f0;
+  --lime-400: #bfe85a;
+  --lime-300: #d4f27f;
+  --sun-300: #ffd98a;
+
+  /* Surfaces (light) */
+  --bg: #f3f8f5;
+  --bg-2: #e9f3ee;
+  --ink: #0b2723;
+  --ink-2: #3d5753;
+  --ink-3: #6b8581;
+  --line: rgba(11, 39, 35, 0.1);
+  --glass: rgba(255, 255, 255, 0.58);
+  --glass-strong: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --brand: var(--teal-600);
+  --brand-ink: #ffffff;
+  --accent: var(--lime-400);
+  --shadow-sm: 0 2px 10px rgba(8, 52, 46, 0.06);
+  --shadow-md: 0 14px 40px -12px rgba(8, 52, 46, 0.22);
+  --shadow-lg: 0 32px 70px -24px rgba(8, 52, 46, 0.35);
+
+  /* Shape — "leaf" radii are the organic motif */
+  --leaf: 2.25rem 0.6rem 2.25rem 0.6rem;
+  --leaf-rev: 0.6rem 2.25rem 0.6rem 2.25rem;
+  --leaf-lg: 4rem 0.75rem 4rem 0.75rem;
+  --r-md: 1.25rem;
+  --r-pill: 999px;
+
+  --font-body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --header-h: 76px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #061a17;
+    --bg-2: #0a2621;
+    --ink: #e5f5f1;
+    --ink-2: #a9c7c1;
+    --ink-3: #78978f;
+    --line: rgba(229, 245, 241, 0.1);
+    --glass: rgba(16, 52, 46, 0.55);
+    --glass-strong: rgba(14, 46, 41, 0.8);
+    --glass-border: rgba(150, 230, 210, 0.16);
+    --brand: var(--mint-300);
+    --brand-ink: #04201c;
+    --shadow-md: 0 14px 40px -12px rgba(0, 0, 0, 0.55);
+    --shadow-lg: 0 32px 70px -24px rgba(0, 0, 0, 0.7);
+  }
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 12px);
+  -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { margin: 0; line-height: 1.1; letter-spacing: -0.02em; font-weight: 700; }
+p { margin: 0; }
+figure { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
+
+:focus-visible { outline: 3px solid var(--lime-400); outline-offset: 3px; border-radius: 6px; }
+
+/* Serif italic accent used inside headings */
+.serif { font-family: var(--font-serif); font-style: italic; font-weight: 500; letter-spacing: -0.01em; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--brand);
+}
+.eyebrow::before {
+  content: ""; width: 22px; height: 22px; border-radius: 60% 40% 60% 40%;
+  background: linear-gradient(135deg, var(--lime-400), var(--teal-500));
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

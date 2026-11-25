@@ -1,0 +1,96 @@
+/* ==========================================================
+   fx.css — liquid cursor, neo-glass shine, floating medical items
+   ========================================================== */
+
+/* ---------- Liquid cursor (gooey blobs trailing the pointer) ---------- */
+.liquid { position: fixed; inset: 0; z-index: 90; pointer-events: none; filter: url(#goo); opacity: 0; transition: opacity .4s; }
+.liquid.on { opacity: 1; }
+.liquid i {
+  position: absolute; left: 0; top: 0; border-radius: 50%; will-change: transform;
+  background: radial-gradient(circle at 35% 30%, #fff 0, var(--aqua-300) 30%, var(--blue-500) 75%);
+  opacity: .5;
+}
+.liquid i:nth-child(1) { width: 38px; height: 38px; margin: -19px 0 0 -19px; }
+.liquid i:nth-child(2) { width: 28px; height: 28px; margin: -14px 0 0 -14px; }
+.liquid i:nth-child(3) { width: 20px; height: 20px; margin: -10px 0 0 -10px; }
+.liquid i:nth-child(4) { width: 13px; height: 13px; margin: -6.5px 0 0 -6.5px; }
+@media (pointer: coarse) { .liquid { display: none; } }
+
+/* ---------- Neo-glass: frosted, with a light that follows the cursor ---------- */
+.glass, .nav {
+  background-image:
+    radial-gradient(280px circle at var(--mx, 50%) var(--my, -60%), rgba(255, 255, 255, .85), rgba(191, 220, 255, .25) 45%, transparent 70%),
+    linear-gradient(135deg, rgba(255, 255, 255, .55), rgba(255, 255, 255, .12));
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, .95), inset 0 -14px 30px -12px rgba(47, 123, 255, .16), inset 1px 0 0 rgba(255, 255, 255, .6);
+  backdrop-filter: blur(22px) saturate(1.7) brightness(1.04);
+  -webkit-backdrop-filter: blur(22px) saturate(1.7) brightness(1.04);
+}
+
+/* ---------- Morphing liquid blobs in the page backdrop ---------- */
+.blob { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; animation: morph 16s ease-in-out infinite; transition: transform .9s var(--ease); }
+.blob--a { transform: translate(calc(var(--px, 0) * -60px), calc(var(--py, 0) * -40px)); }
+.blob--b { transform: translate(calc(var(--px, 0) * 70px), calc(var(--py, 0) * 50px)); animation-duration: 20s; }
+.blob--c { transform: translate(calc(var(--px, 0) * -80px), calc(var(--py, 0) * 60px)); animation-duration: 24s; }
+.blob--a { background: var(--sky-200); } .blob--b { background: var(--aqua-300); } .blob--c { background: var(--sky-300); }
+@keyframes morph {
+  50% { border-radius: 63% 37% 41% 59% / 56% 62% 38% 44%; }
+}
+
+/* ---------- Floating medical items (hero) ---------- */
+.med-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.med { position: absolute; transform: translate(var(--dx, 0px), var(--dy, 0px)); }
+.med svg { width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 10px 14px rgba(27, 95, 224, .25)); animation: floaty 7s ease-in-out infinite; }
+.m-syringe { width: 250px; left: 36%; bottom: 6%; rotate: -14deg; }
+.m-pill { width: 74px; left: 46%; top: 16%; rotate: 28deg; }
+.m-pill svg { animation-duration: 6s; animation-delay: -2s; }
+.m-mask { width: 86px; left: 9%; bottom: 2%; rotate: -8deg; }
+.m-mask svg { animation-duration: 8s; animation-delay: -4s; }
+.m-cross { width: 42px; left: 52%; top: 62%; rotate: 12deg; }
+.m-cross2 { width: 26px; left: 44%; top: 40%; }
+.m-beat { width: 230px; left: 3%; top: 11%; opacity: .55; }
+.beat { stroke-dasharray: 340; stroke-dashoffset: 340; animation: beat 3.2s ease-in-out infinite; }
+@keyframes beat { 0% { stroke-dashoffset: 340; } 55%, 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -340; } }
+
+/* Syringe: plunger pushes in, liquid drains, a drop falls from the needle */
+.syringe .plunger { animation: push 5s ease-in-out infinite; }
+.syringe .fluid { transform-origin: 127px 30px; animation: drain 5s ease-in-out infinite; }
+.syringe .drop { animation: drip 5s ease-in infinite; opacity: 0; }
+@keyframes push  { 0%, 20% { transform: translateX(0); } 55%, 70% { transform: translateX(62px); } 100% { transform: translateX(0); } }
+@keyframes drain { 0%, 20% { transform: scaleX(1); } 55%, 70% { transform: scaleX(.22); } 100% { transform: scaleX(1); } }
+@keyframes drip  { 0%, 40% { opacity: 0; transform: translateY(-4px); } 50% { opacity: 1; transform: translateY(0); } 72% { opacity: 0; transform: translateY(26px); } 100% { opacity: 0; } }
+
+.hero .wrap { position: relative; z-index: 1; }
+
+/* ---------- Soft hospital photo (hides leftover wires) ---------- */
+img.soft { filter: blur(1.4px) saturate(1.08) contrast(.97); transform: scale(1.06); }
+.hero-photo::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(160deg, rgba(79, 209, 255, .18), transparent 40%, rgba(17, 70, 184, .28)); mix-blend-mode: soft-light; }
+
+/* ---------- Directory rows & contact tiles ---------- */
+.dir-row .call {
+  display: inline-flex; align-items: center; gap: .45rem; padding: .45rem .85rem; border-radius: var(--r-pill);
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-700)); color: #fff !important; font-size: .82rem !important;
+  box-shadow: 0 8px 18px -8px rgba(27, 95, 224, .7); transition: transform .25s var(--ease);
+}
+.dir-row:hover .call { transform: scale(1.06); }
+.dir-row .call svg { width: 14px; height: 14px; }
+.dir-row .icon-badge { transition: transform .4s var(--ease), background .3s, color .3s; }
+.dir-row:hover .icon-badge { background: linear-gradient(135deg, var(--blue-500), var(--blue-700)); color: #fff; transform: rotate(-8deg) scale(1.08); }
+
+.info-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: 1.4rem 0 .4rem; }
+.info-tile { display: flex; gap: .85rem; align-items: flex-start; padding: .95rem 1rem; border-radius: 1.4rem .5rem 1.4rem .5rem; box-shadow: var(--shadow-sm); }
+.info-tile .icon-badge { width: 46px; height: 46px; }
+.info-tile .icon-badge svg { width: 21px; height: 21px; }
+.info-tile small { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.info-tile b { display: block; font-size: .9rem; line-height: 1.4; margin-top: .15rem; }
+
+@media (max-width: 1080px) { .m-syringe { left: 40%; bottom: 0; } .m-beat { display: none; } }
+@media (max-width: 720px) {
+  .m-syringe { width: 170px; left: 34%; bottom: 4%; top: auto; opacity: .9; }
+  .m-pill { left: auto; right: 6%; top: 9%; width: 54px; }
+  .m-mask { left: 6%; right: auto; bottom: 3%; width: 64px; }
+  .m-cross, .m-cross2 { display: none; }
+  .info-tiles { grid-template-columns: 1fr; }
+}
+
+.info-tile:nth-child(1), .info-tile:nth-child(4) { grid-column: 1 / -1; }
+.footer-contact svg { width: 18px; height: 18px; }
