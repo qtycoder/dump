@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hospital IT Help Desk</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234a7fb5'/%3E%3Cpath d='M16 8v16M8 16h16' stroke='white' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="bubbles" aria-hidden="true">
+    <span class="bubble" style="width:190px;height:190px;left:-3%;top:10%;--t:16s;--d:-4s;--x:22px;--y:-36px"></span>
+    <span class="bubble" style="width:84px;height:84px;left:14%;top:62%;--t:12s;--d:-7s;--x:-14px;--y:-28px"></span>
+    <span class="bubble" style="width:130px;height:130px;left:42%;top:80%;--t:18s;--d:-2s;--x:20px;--y:-40px"></span>
+    <span class="bubble" style="width:56px;height:56px;left:48%;top:6%;--t:11s;--d:-5s;--x:-10px;--y:-24px"></span>
+    <span class="bubble" style="width:220px;height:220px;right:-5%;top:24%;--t:20s;--d:-9s;--x:-26px;--y:-30px"></span>
+    <span class="bubble" style="width:70px;height:70px;right:12%;top:70%;--t:13s;--d:-1s;--x:12px;--y:-32px"></span>
+    <span class="bubble" style="width:44px;height:44px;left:30%;top:36%;--t:10s;--d:-6s;--x:16px;--y:-22px"></span>
+    <span class="bubble" style="width:100px;height:100px;right:30%;top:12%;--t:15s;--d:-8s;--x:-18px;--y:-34px"></span>
+  </div>
+  <div id="app"></div>
+  <div id="toasts" aria-live="polite" aria-atomic="false"></div>
+  <noscript><p style="padding:2rem">This help desk needs JavaScript enabled.</p></noscript>
+
+  <!-- plain scripts (no server needed): order matters -->
+  <script src="js/db.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/views/home.js"></script>
+  <script src="js/views/login.js"></script>
+  <script src="js/views/dashboard.js"></script>
+  <script src="js/views/employee-dashboard.js"></script>
+  <script src="js/report.js"></script>
+  <script src="js/views/tickets.js"></script>
+  <script src="js/views/crud.js"></script>
+  <script src="js/views/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/fx.js"></script>
+</body>
+</html>
