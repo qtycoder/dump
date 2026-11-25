@@ -1,0 +1,58 @@
+/* Global styles + theme tokens */
+:root{--card:rgba(230,235,245,.82);--veil:rgba(230,235,245,.5);--bg:#e6ebf5;--text:#4a5470;--hi:#fff;--sh:#c2c9d9;--accent:#7c9cff;--ok:#6fcf97;--bad:#e5738a}
+[data-theme=dark]{--card:rgba(43,47,58,.84);--veil:rgba(18,20,28,.68);--bg:#2b2f3a;--text:#d5d9e6;--hi:#353a47;--sh:#21242d}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg) url(../images/school_bg.jpg) center/cover fixed;color:var(--text);min-height:100vh;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:16px;display:grid;gap:18px}
+h1,h2,h3{font-weight:600}.muted{opacity:.7}.small{font-size:.8rem}
+.pad{padding:20px}.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.two{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.stat{padding:18px;text-align:center}.stat b{font-size:2rem;display:block}
+.list{list-style:none;padding:0;display:grid;gap:10px;margin-top:12px}.list li{padding:10px 14px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap}.toolbar input{flex:1;min-width:180px}.toolbar select{width:auto}
+.tbl-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse}th,td{padding:12px 10px;text-align:left;white-space:nowrap}th{opacity:.7;font-weight:600}
+tbody tr{border-top:1px solid var(--sh)}
+.form-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:14px 0}
+label{display:grid;gap:6px;font-size:.85rem}.err{color:var(--bad);font-size:.75rem;min-height:1em}
+.modal{position:fixed;inset:0;background:#0007;display:none;place-items:center;padding:12px;z-index:50}.modal.open{display:grid}
+.modal .box{width:min(720px,100%);max-height:92vh;overflow:auto;padding:24px}
+.profile dl{display:grid;grid-template-columns:140px 1fr;gap:8px 12px;margin-top:12px}.profile dt{opacity:.7}
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:16px}
+.login-card{width:min(400px,100%);padding:32px;display:grid;gap:16px;text-align:center}.login-card label{text-align:left}
+.logo{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;font-size:2rem;margin:0 auto}
+.pw{position:relative}.pw input{width:100%;padding-right:48px}.eye{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;cursor:pointer;font-size:1.1rem}
+
+body::before{content:'';position:fixed;inset:0;background:var(--veil);z-index:-1;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);transition:background .3s}
+.modal .box{background:var(--bg)}
+
+
+/* ---- Login + home pages: classroom photo, light blur, dark glass: classroom photo, light blur, dark glass ---- */
+body[data-page=login],body[data-page=dashboard],body[data-page=students]{--card:rgba(40,25,10,.38);--text:#fff3df;--sh:rgba(0,0,0,.28);--hi:rgba(255,255,255,.05);
+  --veil:rgba(15,8,0,.25);--accent:#ffc46b;--bad:#ffa3ae;--bg:#2a1d10;background:#1a1006 url(../images/Classroom.jpg) center/cover fixed}
+html[data-theme=dark] body[data-page=dashboard],html[data-theme=dark] body[data-page=students]{--card:rgba(20,12,4,.62);--veil:rgba(8,4,0,.5);--bg:#1d140b}
+select option{background:#2a1d10;color:#fff3df}
+/* ---- Aligned profile table ---- */
+.ptable{width:100%;border-collapse:collapse;margin-top:12px;table-layout:fixed}
+.ptable th,.ptable td{border:1px solid var(--sh);padding:9px 12px;text-align:left;white-space:normal;word-break:break-word}.ptable th{width:32%;font-weight:600}
+/* ---- Print: only the profile, black on white, aligned table ---- */
+@media print{
+  @page{margin:15mm}
+  body{background:#fff!important;animation:none}body::before{display:none}
+  .wrap,#toast,.actions{display:none!important}
+  .modal{position:static;display:none;background:none;padding:0}.modal.open{display:block}
+  .modal .box{box-shadow:none;background:#fff!important;backdrop-filter:none;padding:0;max-height:none;overflow:visible;border:0;animation:none}
+  #printArea,#printArea *{color:#000!important}
+  .ptable th,.ptable td{border:1px solid #444}.ptable th{background:#e8e8e8}
+}
+
+/* ---- Circle school logo ---- */
+.logo-img{width:96px;height:96px;border-radius:50%;background:#fff;object-fit:contain;padding:5px;margin:0 auto;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+.brand{width:44px;height:44px;border-radius:50%;background:#fff;object-fit:contain;padding:3px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.nav-left{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.eye{color:inherit}
+
+/* ---- Dashboard panel: activity / archive / trash toggle ---- */
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.tog{display:flex;gap:8px}
+.icon{position:relative;padding:7px 11px;font-size:1rem}.icon.on{color:var(--accent);box-shadow:inset 2px 2px 5px var(--sh)}
+.badge{position:absolute;top:-6px;right:-6px;min-width:17px;height:17px;border-radius:9px;background:var(--bad);color:#fff;font-size:.65rem;display:grid;place-items:center;padding:0 4px}.badge:empty{display:none}
+.panel .list{max-height:320px;overflow:auto;padding:4px}.item{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.item .actions{margin:0}#panelFoot{margin-top:12px}

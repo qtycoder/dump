@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Login · Pupils Profile System</title>
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/neomorphic.css"><link rel="stylesheet" href="css/animations.css">
+<link rel="icon" href="images/logo.jpg"></head><body data-page="login">
+<main class="login-wrap"><form id="loginForm" class="neo login-card" novalidate>
+  <img class="logo-img" src="images/logo.jpg" alt="EWCS logo">
+  <h1>EWCS</h1><p class="muted">Pupils Profile System · Sign in to continue</p>
+  <label>Username<input id="user" autocomplete="username" placeholder="••••••••"></label>
+  <label>Password<div class="pw"><input id="pass" type="password" autocomplete="current-password" placeholder="••••••••">
+    <button type="button" id="eye" class="eye" aria-label="Show password">👁</button></div></label>
+  <p id="loginErr" class="err"></p>
+  <button class="btn primary" style="width:100%">Sign in</button>
+  <p class="muted small">Demo: admin / admin123</p>
+</form></main>
+<script src="js/utils.js"></script><script src="js/auth.js"></script>
+</body></html>

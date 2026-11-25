@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard · Pupils Profile System</title>
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/neomorphic.css"><link rel="stylesheet" href="css/animations.css">
+<link rel="icon" href="images/logo.jpg"></head><body data-page="dashboard"><div class="wrap">
+<div id="nav"></div>
+<section class="carousel neo" id="carousel"><div class="track" id="track"></div>
+  <button class="arrow prev btn" aria-label="Previous">‹</button><button class="arrow next btn" aria-label="Next">›</button><div class="dots"></div></section>
+<h2>Overview</h2><div class="grid" id="stats"></div>
+<div class="two"><section class="neo pad panel"><div class="panel-head"><h3 id="panelTitle">Recent activity</h3><div class="tog">
+  <button class="btn sm icon on" data-p="activity" title="Recent activity" aria-label="Recent activity">🕘</button>
+  <button class="btn sm icon" data-p="archive" title="Archive" aria-label="Archive">🗂<span class="badge" id="cArc"></span></button>
+  <button class="btn sm icon" data-p="trash" title="Trash" aria-label="Trash">🗑<span class="badge" id="cTrash"></span></button></div></div>
+  <ul id="activity" class="list"></ul><div id="panelFoot"></div></section>
+<section class="neo pad"><h3>Quick actions</h3><div class="actions">
+  <a class="btn primary" href="students.html?add=1">＋ Add student</a><a class="btn" href="students.html">View list</a><button class="btn" id="qExport">Export backup</button></div></section></div>
+</div><div id="toast"></div>
+<script src="js/utils.js"></script><script src="js/storage.js"></script><script src="js/auth.js"></script><script src="js/carousel.js"></script><script src="js/app.js"></script>
+</body></html>

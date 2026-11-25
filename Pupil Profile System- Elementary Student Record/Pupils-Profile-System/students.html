@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Students · Student Profile System</title>
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/neomorphic.css"><link rel="stylesheet" href="css/animations.css">
+<link rel="icon" href="images/logo.jpg"></head><body data-page="students"><div class="wrap">
+<div id="nav"></div>
+<section class="neo pad toolbar">
+  <input id="q" placeholder="Search name or LRN…">
+  <select id="fg"><option value="">All grades</option><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option></select>
+  <select id="fs"></select>
+  <button class="btn primary" id="add">＋ Add student</button>
+  <button class="btn" id="xlsx">⬇ Excel</button><button class="btn" id="docx">⬇ Word</button><button class="btn" id="pdf">⬇ PDF</button><button class="btn" id="export">Backup (JSON)</button>
+  <button class="btn" id="importBtn">⬆ Import</button><input type="file" id="importFile" accept=".xlsx,.docx,.csv,.xls,.doc,.json" hidden>
+</section>
+<p class="muted small" id="count"></p>
+<section class="neo pad tbl-wrap"><table><thead><tr><th>LRN</th><th>Name</th><th>Grade</th><th>Section</th><th>Guardian</th><th>Actions</th></tr></thead><tbody id="tbody"></tbody></table></section>
+</div>
+
+<div class="modal" id="formModal"><form class="box neo" id="form" novalidate>
+  <h2 id="formTitle">Add student</h2>
+  <div class="form-grid">
+    <label>LRN (12 digits)<input name="lrn" maxlength="12" inputmode="numeric"><small class="err" data-e="lrn"></small></label>
+    <label>First name<input name="first"><small class="err" data-e="first"></small></label>
+    <label>Middle name<input name="middle"></label>
+    <label>Last name<input name="last"><small class="err" data-e="last"></small></label>
+    <label>Birthdate<input name="birthdate" type="date"><small class="err" data-e="birthdate"></small></label>
+    <label>Age<input name="age" type="number" min="3" max="18"><small class="err" data-e="age"></small></label>
+    <label>Gender<select name="gender"><option value="">Select</option><option>Male</option><option>Female</option></select><small class="err" data-e="gender"></small></label>
+    <label>Grade level<select name="grade"><option value="">Select</option><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option></select><small class="err" data-e="grade"></small></label>
+    <label>Section<input name="section"><small class="err" data-e="section"></small></label>
+    <label>Parent/Guardian<input name="guardian"><small class="err" data-e="guardian"></small></label>
+    <label>Guardian contact<input name="contact" placeholder="09XXXXXXXXX"><small class="err" data-e="contact"></small></label>
+    <label>Date enrolled<input name="enrolled" type="date"><small class="err" data-e="enrolled"></small></label>
+  </div>
+  <label>Address<textarea name="address" rows="2"></textarea><small class="err" data-e="address"></small></label>
+  <div class="actions"><button class="btn primary">Save student</button><button type="button" class="btn" data-close>Cancel</button></div>
+</form></div>
+
+<div class="modal" id="viewModal"><div class="box neo"><div id="printArea"></div>
+  <div class="actions"><button class="btn" id="print">🖨 Print</button><button class="btn" data-close>Close</button></div></div></div>
+<div id="toast"></div>
+<script src="js/utils.js"></script><script src="js/storage.js"></script><script src="js/auth.js"></script><script src="js/export.js"></script><script src="js/import.js"></script><script src="js/app.js"></script>
+</body></html>

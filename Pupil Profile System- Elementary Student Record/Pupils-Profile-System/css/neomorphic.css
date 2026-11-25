@@ -1,0 +1,8 @@
+/* Neumorphic (soft UI) components — light touch */
+.neo{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);background:var(--card);border-radius:20px;box-shadow:4px 4px 14px var(--sh),-2px -2px 8px var(--hi)}
+.neo-in{background:var(--card);border-radius:14px;box-shadow:inset 2px 2px 5px var(--sh),inset -1px -1px 4px var(--hi)}
+input,select,textarea{font:inherit;color:inherit;background:var(--card);border:0;outline:0;border-radius:14px;padding:12px 14px;width:100%;box-shadow:inset 2px 2px 5px var(--sh),inset -1px -1px 4px var(--hi);transition:box-shadow .2s}
+input:focus,select:focus,textarea:focus{box-shadow:inset 2px 2px 5px var(--sh),0 0 0 2px var(--accent)}
+.btn{font:inherit;color:inherit;background:var(--card);border:0;border-radius:14px;padding:11px 18px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center;box-shadow:3px 3px 8px var(--sh),-1px -1px 5px var(--hi);transition:box-shadow .2s,transform .2s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:none;box-shadow:inset 2px 2px 5px var(--sh)}
+.btn.primary{color:var(--accent);font-weight:600}.btn.danger{color:var(--bad)}.btn.sm{padding:6px 10px;font-size:.8rem}
