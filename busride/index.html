@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Busride</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+  <div id="bg" aria-hidden="true"></div>
+
+  <button id="viewToggle" class="view-toggle" type="button" aria-pressed="false">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
+    <span id="viewLabel">Mobile view</span>
+  </button>
+
+  <main class="stage">
+
+    <section class="col col-left">
+
+      <!-- LOG IN / SIGN UP -->
+      <article class="card glass login" id="authCard">
+        <header class="card-top">
+          <span class="brand">Busride_</span>
+          <button class="link" id="switchBtn" type="button">Sign up</button>
+        </header>
+
+        <div id="authGuest">
+          <div class="title-row">
+            <h2 id="authTitle">Log in</h2>
+            <a class="pill-outline" href="trips.html">Browse as guest</a>
+          </div>
+
+          <form id="authForm" novalidate>
+            <label class="field" id="nameField" hidden>
+              <span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span>
+              <input id="nameInput" name="name" type="text" placeholder="full name" autocomplete="name" maxlength="60">
+            </label>
+
+            <label class="field">
+              <span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M16 12v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-3.5 7.1"/></svg></span>
+              <input id="emailInput" name="email" type="email" placeholder="e-mail address" autocomplete="email" required>
+            </label>
+
+            <div class="field" id="passField">
+              <button class="ico ico-btn" id="togglePass" type="button" aria-label="Show password" aria-pressed="false" title="Show password"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/></svg></button>
+              <input id="passInput" name="password" type="password" placeholder="password" aria-label="Password" autocomplete="current-password" required minlength="8">
+              <button class="mini" id="forgotBtn" type="button">I forgot</button>
+            </div>
+
+            <label class="field" id="confirmField" hidden>
+              <span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+              <input id="confirmInput" name="confirm" type="password" placeholder="confirm password" autocomplete="new-password">
+            </label>
+
+            <div class="foot-row">
+              <p class="fine">Log in to book a seat, see your tickets and track your trips. Admins use the same form and are taken to the admin dashboard.</p>
+              <button class="go" type="submit" aria-label="Continue">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+
+            <p class="msg" id="authMsg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div id="authUser" hidden>
+          <div class="welcome-badge" id="welcomeBadge" hidden aria-hidden="true">&#10003;</div>
+          <h2 id="userHeading">Hi</h2>
+          <p class="fine wide" id="userText">You are logged in. Continue to your dashboard or book a trip.</p>
+          <div class="btn-row">
+            <a class="pill-outline solid" id="dashLink" href="dashboard.html">Go to dashboard</a>
+            <a class="pill-outline" id="exploreLink" href="discover.html" hidden>Explore buses</a>
+            <button class="pill-outline" id="logoutBtn" type="button">Log out</button>
+          </div>
+        </div>
+
+        <a class="more" href="trips.html">Click here for more info.</a>
+        <p class="admin-hint"><a href="admin/index.html">Admin dashboard</a><span id="setupHint" hidden> · <a href="setup.html">Create the first admin</a></span></p>
+      </article>
+
+      <!-- FLEET -->
+      <article class="card dark" id="refCard">
+        <h2>Our Fleet</h2>
+        <p class="sub">Bus models &amp; routes</p>
+        <a class="discover" href="discover.html">Discover</a>
+      </article>
+    </section>
+
+    <section class="col col-right">
+      <!-- DATE / BOOK -->
+      <article class="card paper">
+        <div class="strip">
+          <div class="date-big">
+            <span class="mo" id="dMonth">Jan</span>
+            <span class="yr" id="dYear">2026</span>
+          </div>
+          <div class="date-small" id="dSmall">
+            <span id="dWeek">Monday 01</span>
+            <span id="dFull">January 2026</span>
+            <span>Busride</span>
+          </div>
+          <span class="orb-blur" aria-hidden="true"></span>
+          <div class="logo">
+            <svg viewBox="0 0 40 20" width="34" height="17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h12M8 4v12h12M26 10h10M31 5v10"/></svg>
+            <span>Busride</span>
+          </div>
+        </div>
+
+        <div class="paper-side">
+          <p class="tag">Pick your bus<br>Book your seat</p>
+          <span class="orb" aria-hidden="true"></span>
+          <a class="click" href="book.html">
+            <span class="c-text">Click Here</span>
+            <span class="c-dot"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- THANK-YOU AFTER BOOKING: shown when the page is opened as index.html?booked=CODE -->
+  <div class="arrive" id="arrive" hidden role="dialog" aria-modal="true" aria-labelledby="arriveTitle">
+    <div class="scene" aria-hidden="true">
+      <div class="sun"></div>
+      <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+      <div class="hills"></div>
+      <div class="road"></div>
+      <div class="shadow"></div>
+      <div class="fit"><div class="travel"><div class="bus3d">
+        <div class="face side"><i class="win"></i></div>
+        <div class="face side back"></div>
+        <div class="face nose"><i class="pane"></i><i class="lamp l1"></i><i class="lamp l2"></i><i class="bumper"></i></div>
+        <div class="face tail"><i class="pane rear"></i></div>
+        <div class="face roof"></div>
+        <div class="face floor"></div>
+        <div class="wheel-wrap w1"><div class="wheel"></div></div>
+        <div class="wheel-wrap w2"><div class="wheel"></div></div>
+      </div></div></div>
+    </div>
+
+    <div class="arrive-card gcard liquid">
+      <p class="k">Booking confirmed</p>
+      <h2 id="arriveTitle">Thank you, <span id="arName"></span>!</h2>
+      <p class="lead">We will contact you at <b id="arPhone"></b> by call, text or email to confirm your trip. Enjoy and safe ride!</p>
+      <dl class="tlist" id="arTicket"></dl>
+      <div class="btn-row">
+        <a class="btn" href="dashboard.html">View my tickets</a>
+        <a class="btn ghost" href="trips.html">Book another trip</a>
+        <button class="btn ghost" id="arClose" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

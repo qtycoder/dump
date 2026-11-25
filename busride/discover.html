@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Discover · Busride</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="inner">
+  <div id="bg" aria-hidden="true"></div>
+  <div class="scroller">
+    <header id="topnav"></header>
+
+    <main class="page">
+      <section>
+        <h1>Discover</h1>
+        <p class="lead">Swipe through the bus models we run and the routes you can book. Tap a route to see its trips, the driver and the fare.</p>
+      </section>
+
+      <section>
+        <h2>Bus models</h2>
+        <div id="fleet" class="car"><p class="empty">Loading…</p></div>
+      </section>
+
+      <section>
+        <h2>Routes</h2>
+        <div id="routes" class="car"><p class="empty">Loading…</p></div>
+      </section>
+
+      <section>
+        <div class="gcard">
+          <h2>Fares</h2>
+          <p class="lead">Every route has a regular fare. Student, senior citizen and PWD passengers get a discount and must show a valid ID when boarding.</p>
+          <p class="k" id="faresHint">Tap a fare to see its price on every route.</p>
+          <table class="fare-tbl" id="fares"></table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/carousel.js"></script>
+  <script src="assets/js/discover.js"></script>
+</body>
+</html>
